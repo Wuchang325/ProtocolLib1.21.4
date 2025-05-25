@@ -1,8 +1,16 @@
 name: ProtocolLib full build lifecycle
 
 on:
-  - push
-  - pull_request
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      targetBranch:
+        description: 'Target branch to build'
+        required: true
+        default: 'main'
 
 jobs:
   build:
